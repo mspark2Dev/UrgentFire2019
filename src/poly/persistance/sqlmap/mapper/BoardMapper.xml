@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="poly.persistance.mapper.BoardMapper">
+    <select id="getBoardList" resultType="BoardDTO">
+        <![CDATA[
+
+                SELECT
+                    REVIEW_NO AS SEQ,
+                    REVIEW_TITLE AS TITLE,
+                    REVIEW_CONTENT AS CONTENT,
+                    REGID AS REGID,
+                    UPDDATE AS UPDDATE,
+                    REVIEW_NOTICE AS NOTICE_YN
+              FROM ( SELECT
+                    A.*, ROWNUM AS RNUM
+                 FROM
+                    (SELECT * FROM TOILET_REVIEW ORDER BY REVIEW_NO DESC) A
+                 WHERE
+                    ROWNUM <= #{listsize}
+                 ) WHERE
+                    RNUM > #{startlist}
+
+        ]]>
+	</select>
+
+    <insert id="insertBoardInfo" parameterType="BoardDTO">
+        INSERT INTO TOILET_REVIEW (
+            REVIEW_TITLE, REVIEW_NO, REVIEW_CONTENT, REGID, UPDID
+        ) VALUES (
+            #{title},
+            (SELECT NVL(MAX(TOILET_REVIEW.REVIEW_NO),0)+1 FROM TOILET_REVIEW),
+            #{content},
+            #{regId},
+            #{regId}
+        )
+    </insert>
+
+    <select id="getBoardDetail" parameterType="String" resultType="BoardDTO">
+        SELECT
+            REVIEW_TITLE AS TITLE,
+            REVIEW_CONTENT AS CONTENT,
+            REGID AS REGID,
+            UPDDATE AS UPDDATE,
+            REVIEW_NO AS SEQ,
+            REVIEW_NOTICE AS NOTICE_YN
+        FROM
+            TOILET_REVIEW
+        WHERE
+            REVIEW_NO = #{seq}
+    </select>
+
+
+    <select id="getMaxseq" resultType="String">
+        SELECT NVL(MAX(REVIEW_NO),'1') AS maxseq
+        FROM TOILET_REVIEW
+    </select>
+
+    <select id="getMyMaxSeq" parameterType="String" resultType="int">
+        SELECT NVL(MAX(REVIEW_NO),'1') AS maxseq
+        FROM TOILET_REVIEW
+        WHERE REGID = #{userId}
+    </select>
+
+    <update id="setNotice" parameterType="String">
+        UPDATE TOILET_REVIEW SET REVIEW_NOTICE = 'Y'
+        WHERE REVIEW_NO = #{seq}
+    </update>
+
+    <update id="setNoticeN" parameterType="String">
+        UPDATE TOILET_REVIEW SET REVIEW_NOTICE = 'N'
+        WHERE REVIEW_NO = #{seq}
+    </update>
+
+    <delete id="deleteBoardProc" parameterType="String">
+        DELETE FROM TOILET_REVIEW
+        WHERE REVIEW_NO = #{seq}
+    </delete>
+
+    <update id="UpdateBoardInfo" parameterType="BoardDTO">
+        UPDATE TOILET_REVIEW
+        SET
+            REVIEW_TITLE = #{title},
+            REVIEW_CONTENT = #{content}
+        WHERE
+            REVIEW_NO = #{seq}
+    </update>
+
+    <select id="getMyBoardList" resultType="BoardDTO">
+        <![CDATA[
+
+                SELECT
+                    REVIEW_NO AS SEQ,
+                    REVIEW_TITLE AS TITLE,
+                    REVIEW_CONTENT AS CONTENT,
+                    REGID AS REGID,
+                    UPDDATE AS UPDDATE,
+                    REVIEW_NOTICE AS NOTICE_YN
+              FROM ( SELECT
+                    A.*, ROWNUM AS RNUM
+                 FROM
+                    (SELECT * FROM TOILET_REVIEW WHERE REGID = #{userId} ORDER BY REVIEW_NO DESC) A
+                 WHERE
+                    ROWNUM <= #{listsize}
+                 ) WHERE
+                    RNUM > #{startlist}
+        ]]>
+	</select>
+</mapper>

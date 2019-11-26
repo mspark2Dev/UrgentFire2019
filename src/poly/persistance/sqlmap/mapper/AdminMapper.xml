@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="poly.persistance.mapper.AdminMapper">
+    <select id="getUserList" resultType="UserDTO">
+        SELECT
+            USER_NO AS USERNO,
+            USER_ID AS USERID,
+            USER_EMAIL AS USEREMAIL,
+            REGDATE AS REGDATE,
+            USER_GROUP AS USERGROUP
+        FROM
+            USER_INFO ORDER BY USER_NO ASC
+    </select>
+
+    <select id="getUserCount" resultType="String">
+        SELECT
+            COUNT(*)
+        FROM
+            USER_INFO
+    </select>
+
+
+    <update id="updateGroup" parameterType="java.util.HashMap">
+        UPDATE USER_INFO
+        SET USER_GROUP = #{groupval}
+        WHERE USER_NO = #{userNo}
+    </update>
+</mapper>
