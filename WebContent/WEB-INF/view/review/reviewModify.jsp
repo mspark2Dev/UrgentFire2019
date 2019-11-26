@@ -109,7 +109,7 @@
     <div style="width: 100%; margin: auto;">
         <form method="post" action="/Board/BoardModifyProc.do">
             <input type="hidden" name="seq" value="<%=bDTO.getSeq()%>">
-            <input type="text" id="title" name="title" style="width: 100%;" value="<%=bDTO.getTitle()%>" />
+            <input type="text" id="title" name="title" style="width: 100%;" value="<%=bDTO.getTitle().replaceAll(">","&gt;").replaceAll("<","&lt;").replaceAll("'","&#39;").replaceAll("\"","&quot;") %>" />
             <br><br>
             <textarea id="summernote" name="content"><%=Content%></textarea>
             <input id="subBtn" class="btn btn-primary" type="submit" value="글 수정" style="float: right; margin: 10px;"/>

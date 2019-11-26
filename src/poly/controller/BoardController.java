@@ -75,6 +75,8 @@ public class BoardController {
         log.info(this.getClass().getName());
 
         String title = request.getParameter("title");
+        title = title.replaceAll("\"","&#34;");
+        title = title.replaceAll("/", "&#47;");
         String content = request.getParameter("content");
         String regId = (String) session.getAttribute("userId");
 

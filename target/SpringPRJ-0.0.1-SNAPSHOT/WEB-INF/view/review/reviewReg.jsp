@@ -111,11 +111,15 @@
 <script>
     $('#subBtn').click(function () {
         var title = $('#title').val();
+        var content = $('#summernote').val();
 
         if(title==""){
             alert("제목을 입력해 주세요.");
             return false;
             $('#title').focus();
+        } else if(content.match(/&lt;script&gt;/)){
+            alert("내용에 부적절한 문자가 포함되어 있습니다.");
+            return false;
         }
     });
 </script>
