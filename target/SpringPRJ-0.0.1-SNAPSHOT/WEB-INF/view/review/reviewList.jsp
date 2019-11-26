@@ -5,6 +5,7 @@
 <%@ page import="poly.dto.PageDTO" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
     String userId = CmmUtil.nvl((String) session.getAttribute("userId"));
     String userGroup = CmmUtil.nvl((String) session.getAttribute("userGroup"));
@@ -136,11 +137,6 @@
     <%
         for (int i = 0; i < bList.size(); i++) {
             String Title = bList.get(i).getTitle();
-            Title = Title.replaceAll("& lt;", "<");
-            Title = Title.replaceAll("& gt;", ">");
-            Title = Title.replaceAll("& #40;", "(");
-            Title = Title.replaceAll("& #41;", ")");
-            Title = Title.replaceAll("& amp;", "&");
             System.out.println(bList.get(i).getNotice_yn());
     %>
 

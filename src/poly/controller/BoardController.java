@@ -271,7 +271,7 @@ public class BoardController {
         }
         if (result > 0) {
             model.addAttribute("msg", "글 수정이 완료되었습니다.");
-            model.addAttribute("url", referer);
+            model.addAttribute("url", "/Board/BoardList.do?Pno=1");
         } else {
             model.addAttribute("msg", "글 수정에 실패했습니다.");
             model.addAttribute("url", referer);
