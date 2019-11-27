@@ -27,9 +27,11 @@
     <link rel="stylesheet" href="/assets/css/styles.css">
     <script src="/assets/js/jquery.min.js"></script>
     <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.js"></script>
-    <!-- include summernote-ko-KR -->
-    <script src="/assets/js/summernote-ko-KR.js"></script>
+    <!-- include summernote css/js-->
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css" rel="stylesheet">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
+    <script src="/assets/js/summernote-bs4.js"></script>
+    <script src="/assets/js/summernote-bs4.min.js"></script>
 <%--    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">--%>
     <style>
         @media screen and (max-width: 430px) {
@@ -57,6 +59,8 @@
                 maxHeight: null,
                 focus: true,
                 lang: 'ko-KR',
+                // codeviewFilter: true,
+                // codeviewIframeFilter: true,
                 onImageUpload : function(files, editor, welEditable) {
                     sendFile(files[0], editor, welEditable);
                 }
@@ -117,10 +121,10 @@
             alert("제목을 입력해 주세요.");
             return false;
             $('#title').focus();
-        } else if(content.match(/&lt;script&gt;/)){
-            alert("내용에 부적절한 문자가 포함되어 있습니다.");
-            return false;
-        }
+        // } else if(content.match(/&lt;script&gt;/)){
+        //     alert("내용에 부적절한 문자가 포함되어 있습니다.");
+        //     return false;
+        // }
     });
 </script>
 

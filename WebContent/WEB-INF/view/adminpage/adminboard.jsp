@@ -178,11 +178,6 @@
                     <%
                         for (int i = 0; i < bList.size(); i++) {
                             String Title = bList.get(i).getTitle();
-                            Title = Title.replaceAll("& lt;", "<");
-                            Title = Title.replaceAll("& gt;", ">");
-                            Title = Title.replaceAll("& #40;", "(");
-                            Title = Title.replaceAll("& #41;", ")");
-                            Title = Title.replaceAll("& amp;", "&");
                     %>
 
                     <div class="listTag">
@@ -194,7 +189,7 @@
                         </div>
                         <%} %>
                         <div class="listTitle"><a
-                                href="/Board/BoardDetail.do?seq=<%=bList.get(i).getSeq()%>"><%=Title%></a></div>
+                                href="/Board/BoardDetail.do?seq=<%=bList.get(i).getSeq()%>"><%=Title.replaceAll("<", "&lt;").replaceAll(">","&gt;")%></a></div>
                         <div class="listWriter"><%=bList.get(i).getRegId()%></div>
                         <div class="listWhen"><%=bList.get(i).getUpdDate().substring(5, 16)%>
                         </div>

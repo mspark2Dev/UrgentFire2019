@@ -149,7 +149,7 @@
         </div>
         <%} %>
         <div class="listTitle"><a
-                href="/Board/BoardDetail.do?seq=<%=bList.get(i).getSeq()%>"><%=Title%></a></div>
+                href="/Board/BoardDetail.do?seq=<%=bList.get(i).getSeq()%>"><%=Title.replaceAll("<", "&lt;").replaceAll(">","&gt;")%></a></div>
         <div class="listWriter"><%=bList.get(i).getRegId()%></div>
         <div class="listWhen"><%=bList.get(i).getUpdDate().substring(5, 16)%>
         </div>

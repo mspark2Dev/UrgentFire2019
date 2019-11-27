@@ -6,11 +6,11 @@
     String userGroup = CmmUtil.nvl((String) session.getAttribute("userGroup"));
     BoardDTO bDTO = (BoardDTO) request.getAttribute("bDTO");
     String Content = bDTO.getContent();
-    Content = Content.replaceAll("& lt;", "<");
-    Content = Content.replaceAll("& gt;", ">");
-    Content = Content.replaceAll("& #40;", "(");
-    Content = Content.replaceAll("& #41;", ")");
-    Content = Content.replaceAll("& amp;", "&");
+//    Content = Content.replaceAll("& lt;", "<");
+//    Content = Content.replaceAll("& gt;", ">");
+//    Content = Content.replaceAll("& #40;", "(");
+//    Content = Content.replaceAll("& #41;", ")");
+//    Content = Content.replaceAll("& amp;", "&");
 %>
 <html>
 <head>
@@ -57,12 +57,14 @@
     </style>
     <script>
         $(document).ready(function () {
+            document.querySelector('#summernote').value ='<%=Content%>';
             $('#summernote').summernote({
-                placeholder: '내용을 입력해 주세요.',
                 minHeight: 370,
                 maxHeight: null,
                 focus: true,
                 lang: 'ko-KR',
+                codeviewFilter: true,
+                codeviewIframeFilter: true,
                 onImageUpload : function(files, editor, welEditable) {
                     sendFile(files[0], editor, welEditable);
                 }
@@ -111,7 +113,7 @@
             <input type="hidden" name="seq" value="<%=bDTO.getSeq()%>">
             <input type="text" id="title" name="title" style="width: 100%;" value="<%=bDTO.getTitle().replaceAll(">","&gt;").replaceAll("<","&lt;").replaceAll("'","&#39;").replaceAll("\"","&quot;") %>" />
             <br><br>
-            <textarea id="summernote" name="content"><%=Content%></textarea>
+            <textarea id="summernote" name="content"></textarea>
             <input id="subBtn" class="btn btn-primary" type="submit" value="글 수정" style="float: right; margin: 10px;"/>
             <input id="returnBtn" class="btn btn-outline-secondary" type="button" value="돌아가기"
                    style="float: right; margin: 10px;"

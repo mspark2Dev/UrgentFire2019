@@ -13,10 +13,13 @@
     System.out.println("maxseq : " + maxseq);
     String notice_yn = bDTO.getNotice_yn();
     String Title = bDTO.getTitle();
+    Title = Title.replaceAll("& lt;script& gt;", "<script>").replaceAll("& lt;& #47;script& gt;", "</script>");
+    Title = Title.replaceAll("&#34;", "\"").replaceAll("&#47;", "/");
+    Title = Title.replaceAll("&lt;", "<").replaceAll("&gt;", ">");
+    Title = Title.replaceAll("&#40;", "\\(").replaceAll("&#41;", "\\)");
+    Title = Title.replaceAll("&#39;", "'");
     String Content = bDTO.getContent();
-    Content = Content.replaceAll("&lt;", "<").replaceAll("&gt;", ">");
-    Content = Content.replaceAll("&#40;", "\\(").replaceAll("&#41;", "\\)");
-    Content = Content.replaceAll("&#39;", "'");
+    Content = Content.replaceAll("& lt;", "&lt;").replaceAll("& gt;", "&gt;");
     String res = CmmUtil.nvl((String) request.getAttribute("res"));
     System.out.println(res);
 %>
@@ -86,7 +89,7 @@
 
         <!-- Page Heading/Breadcrumbs -->
         <h4 class="mt-4 mb-3" style="display: flex">
-            <c:out value="<%=Title%>" escapeXml="false"/>
+            <c:out value="<%=Title%>" escapeXml="true"/>
             <i class="fa fa-smile-wink" id="smile" style="display: none; color: lightseagreen; margin-left: 10px;"></i>
             <i class="fas fa-meh-blank" id="usally" style="display: none; color: black; margin-left: 10px;"></i>
             <i class="fas fa-angry" id="angry" style="display: none; color: darkred; margin-left: 10px;"></i>
@@ -146,7 +149,7 @@
             <hr>
 
             <!-- Post Content -->
-            <div id="notice_content" style="width: 100%"><c:out value="<%=Content%>" escapeXml="false"/>
+            <div id="notice_content" style="width: 100%; overflow-wrap: break-word"><%=Content%>
             </div>
 
             <hr>
