@@ -75,12 +75,11 @@
                         if(data > 0){
                             var title = document.getElementById("smile");
                             title.style.display = "block";
-                        } else if(data == 0) {
-                            var title = document.getElementById("usally");
-                            title.style.display = "block";
-                        } else {
+                        } else if(data < 0) {
                             var title = document.getElementById("angry");
                             title.style.display = "block"
+                        } else {
+
                         }
                     }
                 });
@@ -91,7 +90,7 @@
         <h4 class="mt-4 mb-3" style="display: flex">
             <c:out value="<%=Title%>" escapeXml="true"/>
             <i class="fa fa-smile-wink" id="smile" style="display: none; color: lightseagreen; margin-left: 10px;"></i>
-            <i class="fas fa-meh-blank" id="usally" style="display: none; color: black; margin-left: 10px;"></i>
+<%--            <i class="fas fa-meh-blank" id="usally" style="display: none; color: black; margin-left: 10px;"></i>--%>
             <i class="fas fa-angry" id="angry" style="display: none; color: darkred; margin-left: 10px;"></i>
         </h4>
         <%

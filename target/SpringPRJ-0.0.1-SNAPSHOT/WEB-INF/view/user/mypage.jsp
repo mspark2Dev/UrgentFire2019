@@ -154,12 +154,9 @@
                             <div class="listWhen">작성일</div>
                         </div>
                         <%
-                            int j = 0;
+                            if(bList.size() > 0){
                             for (int i = 0; i < bList.size(); i++) {
                                 String Title = bList.get(i).getTitle();
-                                System.out.println("j : " + j);
-
-                                    j = j + 1;
                         %>
 
                         <div class="listTag">
@@ -176,6 +173,8 @@
                             <div class="listWhen"><%=bList.get(i).getUpdDate().substring(5, 16)%>
                             </div>
                         </div>
+                        <% }} else { %>
+                        <span style="color: #082de1; display: block; text-align: center;">게시글이 존재하지 않습니다.</span>
                         <% } %>
                     </div>
                     <div id="pNumWraaper" style="display: flex; width: 100%;">

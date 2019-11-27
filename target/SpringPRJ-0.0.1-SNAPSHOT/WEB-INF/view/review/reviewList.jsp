@@ -135,6 +135,7 @@
         <div class="listWhen">작성일</div>
     </div>
     <%
+        if(bList.size() > 0){
         for (int i = 0; i < bList.size(); i++) {
             String Title = bList.get(i).getTitle();
             System.out.println(bList.get(i).getNotice_yn());
@@ -183,7 +184,9 @@
             <a style="margin: 0px 2px 0px 2px;" class="pNumEnd"
                href="/Board/BoardList.do?Pno=<%=paging.getEndPage()+1%>"><i class="fa fa-arrow-right"
                                                                             style="position: relative; top: 2px;"></i></a>
-            <%} %>
+            <%}} else { %>
+            <span style="color: #082de1; display: block; text-align: center;">게시글이 존재하지 않습니다.</span>
+            <% } %>
         </div>
     </div>
 </div>
