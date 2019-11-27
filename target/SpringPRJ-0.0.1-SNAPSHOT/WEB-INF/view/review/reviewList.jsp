@@ -88,6 +88,15 @@
             cursor: pointer;
         }
 
+        .listTitle a {
+            display: block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 100%;
+            text-align: left;
+        }
+
         .listTitle a:link {
             color: black;
         }
@@ -140,16 +149,15 @@
             String Title = bList.get(i).getTitle();
             System.out.println(bList.get(i).getNotice_yn());
     %>
-
-    <div class="listTag">
         <%if(bList.get(i).getNotice_yn().equals("Y")){ %>
-        <div class="listNum" style="font-weight: bold; color: red">공지사항
-        </div>
+    <div class="listTag table table-warning">
+        <div class="listNum" style="font-weight: bold; color: red">공지사항</div>
         <%}else {%>
+        <div class="listTag">
         <div class="listNum"><%=bList.get(i).getSeq()%>
         </div>
         <%} %>
-        <div class="listTitle"><a
+        <div class="listTitle"><a id="listtitlen"
                 href="/Board/BoardDetail.do?seq=<%=bList.get(i).getSeq()%>"><%=Title.replaceAll("<", "&lt;").replaceAll(">","&gt;")%></a></div>
         <div class="listWriter"><%=bList.get(i).getRegId()%></div>
         <div class="listWhen"><%=bList.get(i).getUpdDate().substring(5, 16)%>

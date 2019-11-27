@@ -31,10 +31,10 @@
             <h4>What is ?</h4>
             <p>데이터분석과 1920110012 개인프로젝트 작품</p>
             <div class="social-links social-icons">
-                <a href="#"><i class="fa fa-facebook"
-                               style="position: relative; bottom: -25%;"></i></a> <a href="#"><i
+                <a href="https://www.facebook.com/android.adm"><i class="fa fa-facebook"
+                               style="position: relative; bottom: -25%;"></i></a> <a href="https://www.instagram.com/m_oonoo_s/"><i
                     class="fa fa-instagram" style="position: relative; bottom: -25%;"></i></a>
-                <a href="#"><i class="fa fa-github"
+                <a href="https://www.github.com/DevPrkms"><i class="fa fa-github"
                                style="position: relative; bottom: -25%;"></i></a>
             </div>
         </div>

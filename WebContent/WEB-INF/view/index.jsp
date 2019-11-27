@@ -29,11 +29,6 @@
 		position: relative;
 		left: 25%;
 	}
-
-	footer {
-		position: absolute;
-		bottom: 0;
-	}
 }
 </style>
 </head>
@@ -47,12 +42,13 @@
 	<jsp:include page="header/normal.jsp"></jsp:include>
 <% } %>
 
-
+<div style="">
 	<div class="backgroundimages"
 		style="background-image: url(/assets/img/main.png);"></div>
 
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</div>
 
 <jsp:include page="footer/footer.jsp"></jsp:include>
 </body>

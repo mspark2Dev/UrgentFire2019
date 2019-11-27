@@ -193,39 +193,43 @@
                             System.out.println(i);
                     %>
                     <form style="width: 100%; margin: 0;">
-                    <div class="listTag">
-                        <input type="hidden" id="userNo<%=i%>" value="<%=uDTO.getUserNo()%>">
-                            <div class="listNum"><%=uDTO.getUserNo()%>
-                            </div>
-                            <div class="listId"><%=uDTO.getUserId()%>
-                            </div>
-                            <div class="listEmail"><%=uDTO.getUserEmail()%>
-                            </div>
-                            <div class="listWhen"><%=uDTO.getRegDate().substring(5, 16)%>
-                            </div>
-                            <%if (uDTO.getUserGroup().equals("2")) {%>
-                            <div class="listAuth">관리자</div>
-                            <% } else if (uDTO.getUserGroup().equals("1")) { %>
-                            <div class="listAuth">사용자</div>
-                            <% } else if (uDTO.getUserGroup().equals("3")) {%>
-                            <div class="listAuth">정지</div>
-                            <% } %>
-                            <div class="listSet">
-                                <select id="userGroup<%=i%>" name="userGroup" style="min-width: 60px;"
-                                        onchange="return group<%=i%>()">
-                                    <option value="" selected disabled>선택</option>
-                                    <% if (uDTO.getUserGroup().equals("1")) {%>
-                                    <option value="2">관리자</option>
-                                    <option value="3">정지</option>
-                                    <%} else if (uDTO.getUserGroup().equals("2")) {%>
-                                    <option value="1">사용자</option>
-                                    <%} else if (uDTO.getUserGroup().equals("3")) {%>
-                                    <option value="1">사용자</option>
-                                    <%} %>
-                                </select>
-                            </div>
+                        <% if (uDTO.getUserGroup().equals("3")) { %>
+                        <div class="listTag table table-danger">
+                                <%} else { %>
+                            <div class="listTag">
+                                <%}%>
+                                <input type="hidden" id="userNo<%=i%>" value="<%=uDTO.getUserNo()%>">
+                                <div class="listNum"><%=uDTO.getUserNo()%>
+                                </div>
+                                <div class="listId"><%=uDTO.getUserId()%>
+                                </div>
+                                <div class="listEmail"><%=uDTO.getUserEmail()%>
+                                </div>
+                                <div class="listWhen"><%=uDTO.getRegDate().substring(5, 16)%>
+                                </div>
+                                <%if (uDTO.getUserGroup().equals("2")) {%>
+                                <div class="listAuth">관리자</div>
+                                <% } else if (uDTO.getUserGroup().equals("1")) { %>
+                                <div class="listAuth">사용자</div>
+                                <% } else if (uDTO.getUserGroup().equals("3")) {%>
+                                <div class="listAuth">정지</div>
+                                <% } %>
+                                <div class="listSet">
+                                    <select id="userGroup<%=i%>" name="userGroup" style="min-width: 60px;"
+                                            onchange="return group<%=i%>()">
+                                        <option value="" selected disabled>선택</option>
+                                        <% if (uDTO.getUserGroup().equals("1")) {%>
+                                        <option value="2">관리자</option>
+                                        <option value="3">정지</option>
+                                        <%} else if (uDTO.getUserGroup().equals("2")) {%>
+                                        <option value="1">사용자</option>
+                                        <%} else if (uDTO.getUserGroup().equals("3")) {%>
+                                        <option value="1">사용자</option>
+                                        <%} %>
+                                    </select>
+                                </div>
 
-                    </div>
+                            </div>
                     </form>
 
 
@@ -256,10 +260,10 @@
                             }
                         };
                     </script>
-                <% } %>
+                    <% } %>
+                </div>
             </div>
         </div>
-    </div>
     </div>
 </div>
 </body>

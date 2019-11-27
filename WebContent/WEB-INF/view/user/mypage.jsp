@@ -80,6 +80,15 @@
             cursor: pointer;
         }
 
+        .listTitle a {
+            display: block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 100%;
+            text-align: left;
+        }
+
         .listTitle a:link {
             color: black;
         }
