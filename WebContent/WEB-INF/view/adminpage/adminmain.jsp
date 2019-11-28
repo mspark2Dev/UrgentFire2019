@@ -53,16 +53,13 @@
             color: black;
         }
 
-        .listNum {
-            width: 10%;
-        }
-
         .listId {
             width: 25%;
         }
 
         .listEmail {
             width: 25%;
+            word-break: break-all;
         }
 
         .listWhen {
@@ -74,7 +71,7 @@
         }
 
         .listSet {
-            width: 10%;
+            width: 20%;
         }
     </style>
 </head>
@@ -170,7 +167,6 @@
                 <h4 class="page-title">회원목록</h4>
                 <div class="row">
                     <div class="listHead">
-                        <div class="listNum">#</div>
                         <div class="listId">계정</div>
                         <div class="listEmail">이메일</div>
                         <div class="listWhen">생성일</div>
@@ -199,8 +195,6 @@
                             <div class="listTag">
                                 <%}%>
                                 <input type="hidden" id="userNo<%=i%>" value="<%=uDTO.getUserNo()%>">
-                                <div class="listNum"><%=uDTO.getUserNo()%>
-                                </div>
                                 <div class="listId"><%=uDTO.getUserId()%>
                                 </div>
                                 <div class="listEmail"><%=uDTO.getUserEmail()%>

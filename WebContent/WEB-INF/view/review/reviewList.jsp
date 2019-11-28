@@ -37,6 +37,10 @@
                 position: relative;
                 left: 25%;
             }
+
+            .con_wrapper{
+                width: 100% !important;
+            }
         }
 
         table {
@@ -116,6 +120,10 @@
         .listWhen {
             width: 20%;
         }
+
+        .con_wrapper{
+            width: 55%; margin: 0 auto; min-height: 100vh;
+        }
     </style>
 </head>
 <body>
@@ -127,7 +135,7 @@
 <jsp:include page="/WEB-INF/view/header/normal.jsp"></jsp:include>
 <% } %>
 
-<div style="width: 55%; margin: 0 auto; min-height: 100vh;">
+<div class="con_wrapper" style="">
     <div style="text-align: left; margin-bottom: 2%;">
         <hr>
         <strong>어땠나요? - 리뷰게시판</strong>

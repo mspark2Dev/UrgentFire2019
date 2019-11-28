@@ -48,6 +48,15 @@
                 position: relative;
                 left: 25%;
             }
+
+            #main_wr{
+                width: 100% !important;
+            }
+        }
+
+        #headertext{
+            word-break: break-all;
+            display: flex
         }
     </style>
 
@@ -61,7 +70,7 @@
 <jsp:include page="/WEB-INF/view/header/normal.jsp"></jsp:include>
 <% } %>
 
-<section class="ftco-section goto-here" style="width: 55%; margin: 0 auto; min-height: 100vh;">
+<section id="main_wr" class="ftco-section goto-here" style="width: 55%; margin: 0 auto; min-height: 100vh;">
     <div class="container">
         <input type="hidden" id="bseq" value="<%=num%>">
         <script>
@@ -87,7 +96,7 @@
         </script>
 
         <!-- Page Heading/Breadcrumbs -->
-        <h4 class="mt-4 mb-3" style="display: flex">
+        <h4 id="headertext" class="mt-4 mb-3" style="">
             <c:out value="<%=Title%>" escapeXml="true"/>
             <i class="fa fa-smile-wink" id="smile" style="display: none; color: lightseagreen; margin-left: 10px;"></i>
 <%--            <i class="fas fa-meh-blank" id="usally" style="display: none; color: black; margin-left: 10px;"></i>--%>

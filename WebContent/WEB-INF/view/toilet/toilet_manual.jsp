@@ -39,14 +39,15 @@
                 width: 100%;
             }
 
-            .filloc {
-                display: block;
+            .container {
+                display: block !important;
             }
 
         }
 
         .container {
             width: 100%;
+            display: flex;
         }
 
         .kakaomap {
@@ -96,7 +97,7 @@
 
 <!-- 메인 컨텐츠 시작 -->
 <div id="main-wrapper" style="min-height: 100vh">
-<div class="container" style="display: flex;">
+<div id="main_c" class="container" style="">
     <div id="map" class="kakaomap"></div>
     <script type="text/javascript"
             src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7f5f12b2030f275b598757498f39278f"></script>
