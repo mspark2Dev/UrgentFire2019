@@ -208,7 +208,7 @@
                     <span style="color: #082de1; display: block; text-align: center; margin: 0 auto;">게시글이 존재하지 않습니다.</span>
                     <% } %>
                 </div>
-                    <div id="pNumWraaper" style="display: flex; width: 100%;">
+                    <div id="pNumWraaper" style="display: flex; width: 100%; margin-top: 10px;">
                         <div style="margin: 0 auto; display: flex">
                             <%
                                 if (paging.isPrev() == true) { %>
@@ -217,10 +217,10 @@
 
                             <% for (int a = paging.getStartPage(); a <= paging.getEndPage(); a++) {
                                 if (paging.getPage() == a) { %>
-                            <div class='pNum' style="margin: 0px 2px 0px 2px; font-weight: bolder; color: #082de1">- <%=a%> -
+                            <div class='pNum' style="border: 1px solid gray; padding: 0 5px 0 5px; margin: 0 5px 0 5px; background-color: #56c6c6; color: white">- <%=a%> -
                             </div>
                             <%} else {%>
-                            <a style="margin: 0px 2px 0px 2px; color: black" class='pNum' href="/adminboard.do?Pno=<%=a%>"><%=a%>
+                            <a style="border: 1px solid gray; padding: 0 5px 0 5px; margin: 0 5px 0 5px; color: black" class='pNum' href="/adminboard.do?Pno=<%=a%>"><%=a%>
                             </a>
                             <%
                                     }

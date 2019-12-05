@@ -186,10 +186,10 @@
 
             <% for (int a = paging.getStartPage(); a <= paging.getEndPage(); a++) {
                 if (paging.getPage() == a) { %>
-            <div class='pNum' style="margin: 0px 2px 0px 2px; font-weight: bolder; color: #082de1">- <%=a%> -
+            <div class='pNum' style="border: 1px solid gray; padding: 0 5px 0 5px; margin: 0 5px 0 5px; background-color: #56c6c6; color: white"><%=a%>
             </div>
             <%} else {%>
-            <a style="margin: 0px 2px 0px 2px; color: black" class='pNum' href="/Board/BoardList.do?Pno=<%=a%>"><%=a%>
+            <a style="border: 1px solid gray; padding: 0 5px 0 5px; margin: 0 5px 0 5px; color: black" class='pNum' href="/Board/BoardList.do?Pno=<%=a%>"><%=a%>
             </a>
             <%
                     }
