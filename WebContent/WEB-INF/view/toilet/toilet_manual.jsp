@@ -141,8 +141,8 @@
                     }
 
                     map.setBounds(bounds);
-                    map.setZoomable(false);
-                    map.setDraggable(false);
+                    // map.setZoomable(false);
+                    // map.setDraggable(false);
                 }
             }
 

@@ -199,10 +199,27 @@ public class UserController {
 
 	// 아이디 중복검사
 	@RequestMapping(value = "/idCheck", method = RequestMethod.POST)
-	public @ResponseBody String idCheck(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public @ResponseBody String idCheck(HttpServletRequest request) throws Exception {
 		String userid = CmmUtil.nvl(request.getParameter("userid"));
 		log.info("userid : " + userid);
 		int count = userService.idcheck(userid);
+		// String test ="ok";
+		log.info("count : " + count);
+		// return test;
+
+		if (count == 0) {
+			return "0";
+		} else {
+			return "1";
+		}
+	}
+
+	// 이메일 중복검사
+	@RequestMapping(value = "/emCheck", method = RequestMethod.POST)
+	public @ResponseBody String emCheck(HttpServletRequest request) throws Exception {
+		String useremail = CmmUtil.nvl(request.getParameter("useremail"));
+		log.info("useremail : " + useremail);
+		int count = userService.emcheck(useremail);
 		// String test ="ok";
 		log.info("count : " + count);
 		// return test;

@@ -49,6 +49,13 @@
           USER_ID = #{userId}
 	</select>
 
+	<select id="emcheck" parameterType="String" resultType="Integer">
+      SELECT COUNT(*)
+      FROM USER_INFO
+      WHERE
+          USER_EMAIL = #{userEmail}
+	</select>
+
 	<delete id="checkPw" parameterType="UserDTO">
 		DELETE
 		FROM USER_INFO

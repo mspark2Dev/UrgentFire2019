@@ -55,4 +55,9 @@ public class UserService implements IUserService {
 	public int resetPassword(UserDTO uDTO) throws Exception {
 		return userMapper.resetPassword(uDTO);
 	}
+
+	@Override
+	public int emcheck(String useremail) throws Exception {
+		return userMapper.emcheck(useremail);
+	}
 }

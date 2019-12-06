@@ -217,7 +217,7 @@
 
                             <% for (int a = paging.getStartPage(); a <= paging.getEndPage(); a++) {
                                 if (paging.getPage() == a) { %>
-                            <div class='pNum' style="border: 1px solid gray; padding: 0 5px 0 5px; margin: 0 5px 0 5px; background-color: #56c6c6; color: white">- <%=a%> -
+                            <div class='pNum' style="border: 1px solid gray; padding: 0 5px 0 5px; margin: 0 5px 0 5px; background-color: #56c6c6; color: white"><%=a%>
                             </div>
                             <%} else {%>
                             <a style="border: 1px solid gray; padding: 0 5px 0 5px; margin: 0 5px 0 5px; color: black" class='pNum' href="/adminboard.do?Pno=<%=a%>"><%=a%>

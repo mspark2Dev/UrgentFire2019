@@ -19,4 +19,6 @@ public interface IUserService {
     String getUserId(String userEmail) throws Exception;
 
 	int resetPassword(UserDTO uDTO)throws Exception;
+
+	int emcheck(String useremail) throws Exception;
 }
