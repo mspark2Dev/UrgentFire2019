@@ -13,8 +13,6 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>급한불 비밀번호초기화</title>
-    <link rel="shortcut icon" type="image/x-icon"
-          href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico"/>
     <link rel='stylesheet'
           href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css'>
     <link rel='stylesheet'
