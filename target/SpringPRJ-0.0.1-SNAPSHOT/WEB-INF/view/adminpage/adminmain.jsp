@@ -187,6 +187,7 @@
                         for (UserDTO uDTO : uList) {
                             i++;
                             System.out.println(i);
+                            if(!uDTO.getUserGroup().equals("2")){
                     %>
                     <form style="width: 100%; margin: 0;">
                         <% if (uDTO.getUserGroup().equals("3")) { %>
@@ -254,7 +255,7 @@
                             }
                         };
                     </script>
-                    <% } %>
+                    <% }} %>
                 </div>
             </div>
         </div>

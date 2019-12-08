@@ -117,6 +117,8 @@ public class BoardController {
 
         BoardDTO bDTO = new BoardDTO();
 
+        String referer = CmmUtil.nvl((String)request.getHeader("REFERER"));
+
         try {
             bDTO = boardService.getBoardDetail(seq);
             maxseq = boardService.getMaxseq();
@@ -126,14 +128,23 @@ public class BoardController {
             e.printStackTrace();
         }
 
-        model.addAttribute("bDTO", bDTO);
-        session.setAttribute("maxseq", maxseq);
+        if(bDTO!=null) {
+            model.addAttribute("bDTO", bDTO);
+            session.setAttribute("maxseq", maxseq);
+            log.info("BoardDetail 종료");
+            return "/review/reviewDetail";
+        } else {
+            model.addAttribute("msg", "잘못된 접근입니다.");
+            model.addAttribute("url", "/Board/BoardList.do?Pno=1");
+            log.info("BoardDetail 종료");
+            return "/redirect";
+        }
 
-        log.info("BoardDetail 종료");
+
 
 //        return "review/reviewDetail";
 
-        return "/review/reviewDetail";
+
     }
 
     @RequestMapping(value = "Board/BoardNoticeY")

@@ -34,27 +34,35 @@ public class AdminController {
     @RequestMapping(value = "admin")
     public String admin(Model model, HttpSession session) {
         log.info(this.getClass().getName());
+        String userGroup = CmmUtil.nvl((String)session.getAttribute("userGroup"));
+        log.info(userGroup);
+        if(userGroup.equals("2")) {
 
-        List<UserDTO> uList = new ArrayList<>();
+            List<UserDTO> uList = new ArrayList<>();
 
-        String usercnt = "";
-        String boardcnt = "";
+            String usercnt = "";
+            String boardcnt = "";
 
-        try{
-            uList = adminService.getUserList();
-            usercnt = adminService.getUserCount();
-            boardcnt = boardService.getMaxseq();
-        } catch (Exception e){
-            e.printStackTrace();
-        }
+            try {
+                uList = adminService.getUserList();
+                usercnt = adminService.getUserCount();
+                boardcnt = boardService.getMaxseq();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
-        model.addAttribute("uList", uList);
-        session.setAttribute("usercnt", usercnt);
-        session.setAttribute("boardcnt", boardcnt);
+            model.addAttribute("uList", uList);
+            session.setAttribute("usercnt", usercnt);
+            session.setAttribute("boardcnt", boardcnt);
 //        model.addAttribute("usercnt", usercnt);
 //        model.addAttribute("boardcnt", boardcnt);
 
-        return "adminpage/adminmain";
+            return "adminpage/adminmain";
+        } else {
+            model.addAttribute("msg","잘못된 접근입니다.");
+            model.addAttribute("url","/index.do");
+            return "redirect";
+        }
     }
 
     @RequestMapping(value="adminboard")
